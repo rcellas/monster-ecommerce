@@ -14,7 +14,7 @@ function Home() {
       <Heading as="h3" size="lg" mb={4}>
           Featured Products
         </Heading>
-      <Grid>
+      <Grid templateColumns="repeat(auto-fit, minmax(200px, 4fr))" gap={6}>
         {monsters.map((monster)=>(
           <GridItem key={monster.id}>
             <MonsterCard monster={monster}/>

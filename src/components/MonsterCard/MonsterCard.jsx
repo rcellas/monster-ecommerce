@@ -10,6 +10,7 @@ import {
 import { AddIcon } from "@chakra-ui/icons";
 import {Link as ReactRouterLink} from "react-router-dom";
 import { Link as ChakraLink } from "@chakra-ui/react";
+import RatingStars from "../RatingStars/RatingStars";
 
 function MonsterCard({monster}) {
   return (
@@ -70,7 +71,7 @@ function MonsterCard({monster}) {
           {monster.name}
         </Heading>
         <HStack justify="center" mb={1}>
-          {/* {renderStars()} */}
+        <RatingStars rating={monster.rating} />
           <Text fontSize="sm" ml={2}>
             ({monster.reviewCount})
           </Text>

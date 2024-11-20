@@ -1,0 +1,49 @@
+{
+    "monsters": [
+        {
+            "id": 1,
+            "name": "Goblin Warrior",
+            "price": 300,
+            "imageUrl": "./src/assets/monster1.png",
+            "rating": 4.2,
+            "reviewCount": 45,
+            "featured": false
+        },
+        {
+            "id": 2,
+            "name": "Thunder Phoenix",
+            "price": 2000,
+            "imageUrl": "./src/assets/monster2.png",
+            "rating": 4.9,
+            "reviewCount": 210,
+            "featured": true
+        },
+        {
+            "id": 3,
+            "name": "Stone Giant",
+            "price": 800,
+            "imageUrl": "./src/assets/monster2.png",
+            "rating": 4.5,
+            "reviewCount": 123,
+            "featured": true
+        },
+        {
+            "id": 4,
+            "name": "Shadow Specter",
+            "price": 1500,
+            "imageUrl": "./src/assets/monster2.png",
+            "rating": 4.7,
+            "reviewCount": 75,
+            "featured": false
+        },
+        {
+            "id": 5,
+            "name": "Lava Beast",
+            "price": 1800,
+            "imageUrl": "./src/assets/monster2.png",
+            "rating": 4.6,
+            "reviewCount": 95,
+            "featured": true
+        }
+    ]
+}

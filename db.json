@@ -45,5 +45,37 @@
             "reviewCount": 95,
             "featured": true
         }
+    ],
+    "reviews":[
+        {
+            "id": 1,
+            "monsterId": 1,
+            "rating": 4.5,
+            "comment": "This monster is very strong and has a lot of health points. I recommend it to everyone."
+        },
+        {
+            "id": 2,
+            "monsterId": 2,
+            "rating": 4.8,
+            "comment": "This monster is very strong and has a lot of health points. I recommend it to everyone."
+        },
+        {
+            "id": 3,
+            "monsterId": 3,
+            "rating": 3.5,
+            "comment": "This monster is very strong and has a lot of health points. I recommend it to everyone."
+        },
+        {
+            "id": 4,
+            "monsterId": 4,
+            "rating": 4.7,
+            "comment": "This monster is very strong and has a lot of health points. I recommend it to everyone."
+        },
+        {
+            "id": 5,
+            "monsterId": 5,
+            "rating": 4.6,
+            "comment": "This monster is very strong and has a lot of health points. I recommend it to everyone."
+        }
     ]
 }

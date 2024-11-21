@@ -5,11 +5,9 @@ import {
     Image,
     Text,
     HStack,
-    Icon,
   } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
-import {Link as ReactRouterLink} from "react-router-dom";
-import { Link as ChakraLink } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import RatingStars from "../RatingStars/RatingStars";
 
 function MonsterCard({monster}) {
@@ -49,7 +47,7 @@ function MonsterCard({monster}) {
           featured
         </Box>
       )}
-      <ChakraLink as={ReactRouterLink} to={`/shop/monsters/${monster.id}`}>
+      <Link to={`/shop/monsters/${monster.id}`}>
         <Image
           src={monster.imageUrl}
           alt={monster.name}
@@ -57,7 +55,7 @@ function MonsterCard({monster}) {
           width="100%"
           height="100%"
         />
-      </ChakraLink>
+      </Link>
       <Box
         position="absolute"
         bottom="0"

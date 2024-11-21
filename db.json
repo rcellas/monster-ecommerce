@@ -22,8 +22,8 @@
             "id": 3,
             "name": "Stone Giant",
             "price": 800,
-            "imageUrl": "./src/assets/monster2.png",
-            "rating": 4.5,
+            "imageUrl": "./src/assets/monster1.png",
+            "rating": 2,
             "reviewCount": 123,
             "featured": true
         },

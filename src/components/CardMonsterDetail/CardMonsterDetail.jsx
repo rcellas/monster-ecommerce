@@ -1,9 +1,9 @@
 import React from 'react'
 
-function CardProductDetail() {
+function CardMonsterDetail() {
   return (
     <div>CardProductDetail</div>
   )
 }
 
-export default CardProductDetail
+export default CardMonsterDetail

@@ -1,7 +1,7 @@
 import {
     HStack,
     IconButton,
-  } from "@chakra-ui/react";
+} from "@chakra-ui/react";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 function ButtonSocialMedia() {

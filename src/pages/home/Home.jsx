@@ -7,7 +7,7 @@ import MonsterCard from "../../components/MonsterCard/MonsterCard";
 function Home() {
   const {monsters} = useContext(MonsterContext);
   return (
-    <Box>
+    <Box mt="90px">
       <Box p={5} maxW="1200px" mx="auto">
       <Heading as="h3" size="lg" mb={4}>
           Featured Products

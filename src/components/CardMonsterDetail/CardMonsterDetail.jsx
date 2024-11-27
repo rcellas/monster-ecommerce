@@ -5,20 +5,13 @@ import {
   VStack,
   Heading,
   Flex,
-  HStack,
-  IconButton,
-  Divider,
-  FormControl,
-  FormLabel,
-  Input,
-  Textarea,
+  HStack
 } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import ButtonSocialMedia from "../ButtonSocialMedia/ButtonSocialMedia";
-import Cart from "../Cart/Cart";
+import Cart from "../Cart/CartMonsterDetail";
 
 function CardMonsterDetail({monster}) {
-  console.log(monster)
   return (
     <Flex
     flexDirection={{ base: "column", md: "row" }}

@@ -20,7 +20,7 @@ const MonsterDetail = () => {
   }
 
   return (
-    <Box maxW="1200px" mx="auto" p={5} mt="20px" maxH="80vh" key={monster.id}>
+    <Box maxW="1200px" mx="auto" p={5} mt="100px" maxH="80vh" key={monster.id}>
       <CardMonsterDetail monster={monster} />
     </Box>
   );

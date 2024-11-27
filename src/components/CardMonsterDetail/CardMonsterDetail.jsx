@@ -17,8 +17,6 @@ import { StarIcon } from "@chakra-ui/icons";
 import ButtonSocialMedia from "../ButtonSocialMedia/ButtonSocialMedia";
 import Cart from "../Cart/Cart";
 
-
-
 function CardMonsterDetail({monster}) {
   console.log(monster)
   return (

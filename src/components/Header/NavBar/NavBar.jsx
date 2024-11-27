@@ -1,4 +1,5 @@
 import { Flex, Box, Heading, Spacer,Menu, MenuButton , IconButton , Avatar, MenuList , MenuItem ,Divider } from '@chakra-ui/react'
+import { Link } from 'react-router-dom';
 import { Link as RouterLink } from "react-router-dom";
 
 function NavBar() {
@@ -17,6 +18,7 @@ function NavBar() {
     >
       <Flex justify="space-between" align="center" maxW="1400px" mx="auto">
         <Heading as="h1" size="lg" textColor="brand.100" fontWeight="thin">
+          <Link to="/">
           Happy{" "}
           <Spacer
             as="span"
@@ -27,6 +29,7 @@ function NavBar() {
           >
             Monstry
           </Spacer>
+          </Link>
         </Heading>
         <Menu>
           <MenuButton

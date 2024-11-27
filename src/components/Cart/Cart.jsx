@@ -1,6 +1,6 @@
 import {
     Button
-  } from "@chakra-ui/react";
+} from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 
 function Cart() {

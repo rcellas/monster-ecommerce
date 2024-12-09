@@ -1,16 +1,13 @@
 import {
     Box,
-    Button,
     Heading,
     Image,
     Text,
     HStack,
-    Icon,
-  } from "@chakra-ui/react";
-import { AddIcon } from "@chakra-ui/icons";
-import {Link as ReactRouterLink} from "react-router-dom";
-import { Link as ChakraLink } from "@chakra-ui/react";
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import RatingStars from "../RatingStars/RatingStars";
+import AddCart from "../Cart/AddCart";
 
 function MonsterCard({monster}) {
   return (
@@ -49,7 +46,7 @@ function MonsterCard({monster}) {
           featured
         </Box>
       )}
-      <ChakraLink as={ReactRouterLink} to={`/shop/monsters/${monster.id}`}>
+      <Link to={`/shop/monsters/${monster.id}`}>
         <Image
           src={monster.imageUrl}
           alt={monster.name}
@@ -57,7 +54,7 @@ function MonsterCard({monster}) {
           width="100%"
           height="100%"
         />
-      </ChakraLink>
+      </Link>
       <Box
         position="absolute"
         bottom="0"
@@ -79,19 +76,7 @@ function MonsterCard({monster}) {
         <Text fontSize="md" fontWeight="bold">
           ${monster.price}
         </Text>
-        <Button
-          size="sm"
-          colorScheme="teal"
-          leftIcon={<AddIcon />}
-          bg="brand.100"
-          _hover={{ bg: "brand.200" }}
-          _active={{ bg: "brand.300", transform: "scale(0.95)" }}
-          borderRadius="full"
-          boxShadow="0 0 20px rgba(0, 0, 0, 0.1)"
-          mt={2}
-        >
-          Add to Cart
-        </Button>
+        <AddCart/>
       </Box>
     </Box>
   )

@@ -1,9 +1,13 @@
 import axios from "axios";
 
-const apiMonstersUrl = "http://localhost:3000/monsters"
+const apiMonstersUrl = "http://localhost:8080/api/products"
 
 const getAllMonsters = async () => {
     const response = await axios.get(apiMonstersUrl)
+    return response.data;
+}
+const getMonsterById = async (id) => {
+    const response = await axios.get(`${apiMonstersUrl}/${id}`)
     return response.data;
 }
 
@@ -15,5 +19,6 @@ const createMonsters = async (newProduct) => {
 
 export {
     getAllMonsters,
-    createMonsters
+    createMonsters,
+    getMonsterById
 }

@@ -11,7 +11,7 @@ const Layout = () => {
             <Outlet/>
           </main>
           <footer>footer</footer>
-        </MonsterProvider>
+      </MonsterProvider>
     </div>
   )
 }

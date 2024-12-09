@@ -4,6 +4,7 @@ import { Box, Image, Text, VStack, Heading, Flex } from "@chakra-ui/react";
 import CardMonsterDetail from '../../components/MonsterDetail/CardMonsterDetail';
 import { getMonsterById } from '../../service/MonsterService';
 import { MonsterContext } from '../../context/MonsterContext/MonsterContext';
+import ReviewMonsterDetail from '../../components/Reviews/ReviewMonsterDetail';
 
 const MonsterDetail = () => {
   const { monsterId } = useParams();
@@ -36,6 +37,7 @@ const MonsterDetail = () => {
   return (
     <Box maxW="1200px" mx="auto" p={5} mt="40px" maxH="80vh">
       <CardMonsterDetail monster={monster} />
+      <ReviewMonsterDetail  reviews={monster.reviews}/>
     </Box>
   );
 };

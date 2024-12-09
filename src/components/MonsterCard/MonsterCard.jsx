@@ -15,7 +15,6 @@ function MonsterCard({monster}) {
         key={monster.id}
         position="relative"
         height="450px"
-        mt="150px"
         borderRadius="lg"
         overflow="hidden"
         transition="transform 0.2s"

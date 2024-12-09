@@ -10,20 +10,23 @@ function ButtonSocialMedia() {
     <IconButton
       aria-label="Share on Facebook"
       icon={<FaFacebook />}
-      colorScheme="facebook"
-      variant="outline"
+      colorScheme="blue"
+      _hover={{ bg: "blue.200" }}
+      _active={{ bg: "brand.300", transform: "scale(0.95)" }}
     />
     <IconButton
       aria-label="Share on Twitter"
       icon={<FaTwitter />}
-      colorScheme="twitter"
-      variant="outline"
+      colorScheme="cyan"
+      _hover={{ bg: "cyan.200" }}
+      _active={{ bg: "brand.300", transform: "scale(0.95)" }}
     />
     <IconButton
       aria-label="Share on Instagram"
       icon={<FaInstagram />}
       colorScheme="pink"
-      variant="outline"
+      _hover={{ bg: "pink.200" }}
+      _active={{ bg: "brand.300", transform: "scale(0.95)" }}
     />
   </HStack>
   )

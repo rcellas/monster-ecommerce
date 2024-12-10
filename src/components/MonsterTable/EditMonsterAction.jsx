@@ -1,20 +1,24 @@
-import {
-    IconButton
-} from '@chakra-ui/react'
-import { EditIcon } from '@chakra-ui/icons'
+import React, { useState } from 'react';
+import { IconButton } from '@chakra-ui/react';
+import { EditIcon } from '@chakra-ui/icons';
+import EditFormMonster from '../EditFormMonster/EditFormMonster';
 
-function EditMonsterAction(id) {
+function EditMonsterAction({ monster }) {
+    const [isOpen, setIsOpen] = useState(false);
+    console.log('Monster:', monster); // Agrega este log para depurar
+    const handleOpen = () => setIsOpen(true);
+    const handleClose = () => setIsOpen(false);
 
-  const handleEdit = (id) => {
-    console.log(`Edit monster with id ${id}`)
-  }
-  return (
-    <IconButton
-        icon={<EditIcon/>}
-        colorScheme="blue"
-        onClick={() => handleEdit(id)}
-    />
-  )
+    return (
+        <>
+            <IconButton
+                icon={<EditIcon />}
+                colorScheme="blue"
+                onClick={handleOpen}
+            />
+            <EditFormMonster monster={monster} isOpen={isOpen} onClose={handleClose} />
+        </>
+    );
 }
 
-export default EditMonsterAction
+export default EditMonsterAction;

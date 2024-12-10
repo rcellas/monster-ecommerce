@@ -3,11 +3,11 @@ import {
     Tr,
     Td,
     Image,
-    Switch,
     HStack
 } from '@chakra-ui/react';
 import EditMonsterAction from './EditMonsterAction';
 import DeleteMonsterAction from './DeleteMonsterAction';
+import FeaturedSwitch from '../shared/FeatureSwitch/FeatureSwitch';
 
 function TableBody({ monsters, onFeaturedChange }) {
   return (
@@ -29,14 +29,14 @@ function TableBody({ monsters, onFeaturedChange }) {
                     <Td>{monster.name}</Td>
                     <Td>{monster.price}</Td>
                     <Td>
-                        <Switch
+                        <FeaturedSwitch
                             isChecked={monster.featured}
                             onChange={(e) => onFeaturedChange(monster.id, e.target.checked)}
                         />
                     </Td>
                     <Td>
                         <HStack>
-                            <EditMonsterAction id={monster.id} />
+                            <EditMonsterAction monster={monster} />
                             <DeleteMonsterAction monster={monster} />
                         </HStack>
                     </Td>

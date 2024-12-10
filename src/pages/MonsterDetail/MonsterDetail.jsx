@@ -1,15 +1,18 @@
-import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, Image, Text, VStack, Heading, Flex } from "@chakra-ui/react";
+import { Box } from '@chakra-ui/react';
 import CardMonsterDetail from '../../components/MonsterDetail/CardMonsterDetail';
-import { getMonsterById } from '../../service/MonsterService';
-import { MonsterContext } from '../../context/MonsterContext/MonsterContext';
 import ReviewMonsterDetail from '../../components/Reviews/ReviewMonsterDetail';
+import ReviewForm from '../../components/Reviews/ReviewForm';
+import { getMonsterById } from '../../service/MonsterService';
+
+import useReviews from '../../hooks/useReviews';
+import { useEffect, useState } from 'react';
 
 const MonsterDetail = () => {
   const { monsterId } = useParams();
   const [monster, setMonster] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { reviews, createReview, loading: reviewsLoading } = useReviews(monsterId);
 
   useEffect(() => {
     const fetchMonster = async () => {
@@ -17,7 +20,7 @@ const MonsterDetail = () => {
         const data = await getMonsterById(monsterId);
         setMonster(data);
       } catch (error) {
-        console.error("Error fetching monster:", error);
+        console.error('Error fetching monster:', error);
       } finally {
         setLoading(false);
       }
@@ -26,7 +29,7 @@ const MonsterDetail = () => {
     fetchMonster();
   }, [monsterId]);
 
-  if (loading) {
+  if (loading || reviewsLoading) {
     return <div>Loading...</div>;
   }
 
@@ -37,7 +40,8 @@ const MonsterDetail = () => {
   return (
     <Box maxW="1200px" mx="auto" p={5} mt="40px" maxH="80vh">
       <CardMonsterDetail monster={monster} />
-      <ReviewMonsterDetail  reviews={monster.reviews}/>
+      <ReviewMonsterDetail reviews={reviews} />
+      <ReviewForm monsterId={monsterId} createReview={createReview} />
     </Box>
   );
 };

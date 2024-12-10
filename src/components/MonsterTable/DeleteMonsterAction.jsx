@@ -1,19 +1,29 @@
-import { IconButton, useDisclosure } from '@chakra-ui/react'
-import { DeleteIcon } from '@chakra-ui/icons'
+import { IconButton, useDisclosure } from '@chakra-ui/react';
+import { DeleteIcon } from '@chakra-ui/icons';
+import { useContext } from 'react';
+import { MonsterContext } from '../../context/MonsterContext/MonsterContext'; // Asegúrate de importar correctamente el contexto
 
-function DeleteMonsterAction() {
-
+function DeleteMonsterAction({ monster }) {
+    console.log('Monster:', monster); // Agrega este log para depurar
+    const { deleteMonsterById } = useContext(MonsterContext);
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const handleDelete = (id) => {
-        console.log(`Delete monster with id ${id}`)
-    }
+
+    const handleDelete = async (id) => {
+        console.log('Deleting monster with ID:', id); // Agrega este log para depurar
+        if (id) {
+            await deleteMonsterById(id);
+        } else {
+            console.error('Monster ID is undefined');
+        }
+    };
+
     return (
         <IconButton
-            icon={<DeleteIcon/>}
+            icon={<DeleteIcon />}
             colorScheme="red"
-            onClick={() => handleDelete(monster.id)}
+            onClick={() => handleDelete(monster?.id)}
         />
-    )
+    );
 }
 
-export default DeleteMonsterAction
+export default DeleteMonsterAction;

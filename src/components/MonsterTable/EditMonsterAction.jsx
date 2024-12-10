@@ -4,7 +4,6 @@ import {
 import { EditIcon } from '@chakra-ui/icons'
 
 function EditMonsterAction(id) {
-  console.log(id)
 
   const handleEdit = (id) => {
     console.log(`Edit monster with id ${id}`)

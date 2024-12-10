@@ -1,13 +1,14 @@
 import { MonsterContext } from './MonsterContext';
 import useMonster from '../../hooks/useMonsters';
 
-const MonsterProvider = ({children}) => {
-  const { monsters, setMonsters } = useMonster()
-  return (
-    <MonsterContext.Provider value={{monsters, setMonsters}}>
-        {children}
-    </MonsterContext.Provider>
-  )
-}
+const MonsterProvider = ({ children }) => {
+  const { monsters, createMonster, updateMonsterById, deleteMonsterById } = useMonster();
 
-export default MonsterProvider
+  return (
+    <MonsterContext.Provider value={{ monsters, createMonster, updateMonsterById, deleteMonsterById }}>
+      {children}
+    </MonsterContext.Provider>
+  );
+};
+
+export default MonsterProvider;

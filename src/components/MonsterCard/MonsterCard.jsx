@@ -10,6 +10,12 @@ import RatingStars from "../RatingStars/RatingStars";
 import AddCart from "../Cart/AddCart";
 
 function MonsterCard({monster}) {
+ 
+  const reviews = monster.reviews || [];
+
+  const averageRating = reviews.length
+    ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length
+    : 0;
   return (
     <Box
         key={monster.id}
@@ -68,10 +74,10 @@ function MonsterCard({monster}) {
           {monster.name}
         </Heading>
         <HStack justify="center" mb={1}>
-        <RatingStars rating={monster.rating} />
-          <Text fontSize="sm" ml={2}>
-            ({monster.reviewCount})
-          </Text>
+        <RatingStars rating={averageRating} />
+        <Text ml={2} color="white">
+          {averageRating.toFixed(1)} / 5
+        </Text>
         </HStack>
         <Text fontSize="md" fontWeight="bold">
           ${monster.price}

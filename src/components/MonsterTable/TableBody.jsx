@@ -3,14 +3,13 @@ import {
     Tr,
     Td,
     Image,
-    Switch,
-    HStack,
-    IconButton
-} from '@chakra-ui/react'
-import EditMonsterAction from './EditMonsterAction'
-import DeleteMonsterAction from './DeleteMonsterAction'
+    HStack
+} from '@chakra-ui/react';
+import EditMonsterAction from './EditMonsterAction';
+import DeleteMonsterAction from './DeleteMonsterAction';
+import FeaturedSwitch from '../shared/FeatureSwitch/FeatureSwitch';
 
-function TableBody({monsters}) {
+function TableBody({ monsters, onFeaturedChange }) {
   return (
     <Tbody>
         {monsters.map((monster) => {
@@ -30,19 +29,22 @@ function TableBody({monsters}) {
                     <Td>{monster.name}</Td>
                     <Td>{monster.price}</Td>
                     <Td>
-                        <Switch isChecked={monster.featured} onChange={() => handleFeaturedChange(monster.id)}/>
+                        <FeaturedSwitch
+                            isChecked={monster.featured}
+                            onChange={(e) => onFeaturedChange(monster.id, e.target.checked)}
+                        />
                     </Td>
                     <Td>
                         <HStack>
-                            <EditMonsterAction id={monster.id}/>
-                            <DeleteMonsterAction id={monster.id}/>
+                            <EditMonsterAction monster={monster} />
+                            <DeleteMonsterAction monster={monster} />
                         </HStack>
                     </Td>
                 </Tr>
-            )
+            );
         })}
     </Tbody>
-  )
+  );
 }
 
-export default TableBody
+export default TableBody;

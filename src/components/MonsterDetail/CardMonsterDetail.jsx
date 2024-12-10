@@ -12,6 +12,14 @@ import ButtonSocialMedia from "../ButtonSocialMedia/ButtonSocialMedia";
 import Cart from "../Cart/CartMonsterDetail";
 
 function CardMonsterDetail({monster}) {
+  // Supongamos que tienes un array de puntuaciones de usuarios
+  const reviews = monster.reviews || []; // Ejemplo: [{ rating: 4 }, { rating: 5 }, { rating: 3 }, { rating: 4 }, { rating: 5 }]
+
+  // Calcula la media de las puntuaciones
+  const averageRating = reviews.length
+    ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length
+    : 0;
+
   return (
     <Flex
     flexDirection={{ base: "column", md: "row" }}
@@ -46,14 +54,14 @@ function CardMonsterDetail({monster}) {
         {monster.name}
       </Heading>
       <HStack spacing={1}>
-        {[...Array(5)].map((_, i) => (
+      {[...Array(5)].map((_, i) => (
           <StarIcon
             key={i}
-            color={i < monster.rating ? "teal.500" : "gray.300"}
+            color={i < averageRating ? 'teal.500' : 'gray.300'}
           />
         ))}
-        <Text fontSize="lg" color="white">
-          {monster.rating}
+         <Text ml={2} color="white">
+          {averageRating.toFixed(1)} / 5
         </Text>
       </HStack>
       <Text fontSize="lg" color="white">

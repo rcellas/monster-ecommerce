@@ -5,12 +5,12 @@ import {
 import TableThead from "./TableThead";
 import TableBody from "./TableBody";
 
-function MonsterTable({monsters}) {
+function MonsterTable({ monsters, onFeaturedChange }) {
   return (
     <Box overflow="auto">
         <Table variant="simple" colorScheme="whiteAlpha">
             <TableThead/>
-            <TableBody monsters={monsters}/>
+            <TableBody monsters={monsters} onFeaturedChange={onFeaturedChange}/>
         </Table>
     </Box>
   )

@@ -5,6 +5,7 @@ import Home from '../pages/home/Home'
 import MonsterDetail from '../pages/MonsterDetail/MonsterDetail'
 import ProductCreatorForm from '../pages/ProductCreatorForm/ProductCreatorForm'
 import ProductManager from '../pages/ProductManager/ProductManager'
+import MonsterNotFound from '../pages/MonsterNotFound/MonsterNotFound'
 
 export const router = createBrowserRouter([
     {
@@ -20,13 +21,18 @@ export const router = createBrowserRouter([
                 element: <MonsterDetail/>
             },
             {
-                path:"/create",
+                path:"/create-monsters",
                 element:<ProductCreatorForm/>
             },
             {
-                path:"/product-manager",
+                path:"admin/product-manager",
                 element:<ProductManager/>
-            }
+            },
+           
         ]
+    },
+    {
+        path:"*",
+        element:<MonsterNotFound/>
     }
 ])

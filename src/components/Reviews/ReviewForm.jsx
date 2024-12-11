@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Heading, Input, Textarea, Button, HStack } from '@chakra-ui/react';
+import { Box, Heading, Input, Textarea, Button, HStack,Text } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
 
 function ReviewForm({ monsterId, createReview }) {
@@ -8,7 +8,7 @@ function ReviewForm({ monsterId, createReview }) {
   const [rating, setRating] = useState(0);
 
   const handleStarClick = (index) => {
-    setRating(index + 1); // Ajusta el rating según el índice de la estrella seleccionada
+    setRating(index + 1);
   };
 
   const handleSubmit = async (e) => {
@@ -47,14 +47,27 @@ function ReviewForm({ monsterId, createReview }) {
           value={reviewerName}
           onChange={(e) => setReviewerName(e.target.value)}
           mb={3}
+          _placeholder={{ color: 'gray.600' }}
+          bg="gray.100"
+          borderColor="gray.300"
+          _hover={{ borderColor: 'gray.400' }}
+          _focus={{ borderColor: 'blue.500' }}
+          color="black"
         />
         <Textarea
           placeholder="Your Review"
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}
           mb={3}
+          _placeholder={{ color: 'gray.600' }}
+          bg="gray.100"
+          borderColor="gray.300"
+          _hover={{ borderColor: 'gray.400' }}
+          _focus={{ borderColor: 'blue.500' }}
+          color="black"
         />
         <HStack spacing={1} mb={3}>
+          <Text color="white">Rating:</Text>
           {[...Array(5)].map((_, i) => (
             <StarIcon
               key={i}

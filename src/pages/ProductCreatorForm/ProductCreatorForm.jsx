@@ -70,6 +70,7 @@ function ProductCreatorForm() {
             onChange={(e) => setName(e.target.value)}
             placeholder="Enter monster name"
             _placeholder={{ color: 'gray.600' }}
+            color="black"
             bg="gray.100"
             borderColor="gray.300"
             _hover={{ borderColor: 'gray.400' }}
@@ -83,6 +84,7 @@ function ProductCreatorForm() {
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Enter monster description"
             _placeholder={{ color: 'gray.600' }}
+            color="black"
             bg="gray.100"
             borderColor="gray.300"
             _hover={{ borderColor: 'gray.400' }}
@@ -97,6 +99,7 @@ function ProductCreatorForm() {
             onChange={(e) => setPrice(e.target.value)}
             placeholder="Enter monster price"
             _placeholder={{ color: 'gray.600' }}
+            color="black"
             bg="gray.100"
             borderColor="gray.300"
             _hover={{ borderColor: 'gray.400' }}
@@ -111,6 +114,7 @@ function ProductCreatorForm() {
             onChange={(e) => setImage(e.target.value)}
             placeholder="Enter image URL"
             _placeholder={{ color: 'gray.600' }}
+            color="black"
             bg="gray.100"
             borderColor="gray.300"
             _hover={{ borderColor: 'gray.400' }}

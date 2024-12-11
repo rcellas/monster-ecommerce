@@ -14,7 +14,6 @@ function ProductCreatorForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validaciones
     if (!name || !description || !price || !image) {
       toast({
         title: "Error",

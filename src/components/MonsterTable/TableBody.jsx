@@ -5,7 +5,7 @@ import {
     Image,
     HStack
 } from '@chakra-ui/react';
-import EditMonsterAction from './EditMonsterAction';
+import EditBtnMonsterAction from './EditBtnMonsterAction';
 import DeleteMonsterAction from './DeleteMonsterAction';
 import FeaturedSwitch from '../shared/FeatureSwitch/FeatureSwitch';
 
@@ -36,7 +36,7 @@ function TableBody({ monsters, onFeaturedChange }) {
                     </Td>
                     <Td>
                         <HStack>
-                            <EditMonsterAction monster={monster} />
+                            <EditBtnMonsterAction monster={monster} />
                             <DeleteMonsterAction monster={monster} />
                         </HStack>
                     </Td>

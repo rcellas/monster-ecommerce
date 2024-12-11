@@ -14,11 +14,13 @@ function Home() {
           Featured Products
         </Heading>
       <Grid templateColumns="repeat(auto-fit, minmax(200px, 4fr))" gap={6}>
-        {monsters.map((monster)=>(
-          <GridItem key={monster.id}>
-            <MonsterCard monster={monster}/>
-          </GridItem>
-        ))}
+      {monsters
+            .filter(monster => monster.featured) // Filtra solo los productos destacados
+            .map(monster => (
+              <GridItem key={monster.id}>
+                <MonsterCard monster={monster} />
+              </GridItem>
+            ))}
       </Grid>
       </Box>
     </Box>

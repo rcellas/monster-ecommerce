@@ -7,15 +7,15 @@ function ProductCreatorForm() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
-  const [image, setImage] = useState('');
+  const [imageUrl, setImage] = useState('');
   const [featured, setFeatured] = useState(false);
-  const [imageError, setImageError] = useState(false);
+  const [imageUrlError, setImageError] = useState(false);
   const toast = useToast();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!name || !description || !price || !image) {
+    if (!name || !description || !price || !imageUrl) {
       toast({
         title: "Error",
         description: "All fields are required.",
@@ -37,7 +37,7 @@ function ProductCreatorForm() {
       return;
     }
 
-    const newMonster = { name, description, price, image, featured };
+    const newMonster = { name, description, price, imageUrl, featured };
     createMonster(newMonster);
 
     setName('');
@@ -111,13 +111,13 @@ function ProductCreatorForm() {
             _focus={{ borderColor: 'blue.500' }}
           />
         </FormControl>
-        <FormControl id="image" mb={4} isRequired>
+        <FormControl id="imageUrl" mb={4} isRequired>
           <FormLabel color="gray.800">Image URL</FormLabel>
           <Input
             type="url"
-            value={image}
+            value={imageUrl}
             onChange={(e) => setImage(e.target.value)}
-            placeholder="Enter image URL"
+            placeholder="Enter imageUrl URL"
             color="black"
             bg="gray.100"
             borderColor="gray.300"
@@ -125,17 +125,17 @@ function ProductCreatorForm() {
             _focus={{ borderColor: 'blue.500' }}
           />
         </FormControl>
-        {image && (
+        {imageUrl && (
           <Box mb={4}>
             <Image
-              src={image}
+              src={imageUrl}
               alt="Monster Preview"
               borderRadius="lg"
               onError={handleImageError}
               onLoad={handleImageLoad}
-              display={imageError ? 'none' : 'block'}
+              display={imageUrlError ? 'none' : 'block'}
             />
-            {imageError && <Text color="red.500">Invalid image URL</Text>}
+            {imageUrlError && <Text color="red.500">Invalid image URL</Text>}
           </Box>
         )}
         <FormControl display="flex" alignItems="center" mb={4}>

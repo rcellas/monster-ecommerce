@@ -6,7 +6,6 @@ import MonsterCard from "../../components/MonsterCard/MonsterCard";
 
 function Home() {
   const {monsters} = useContext(MonsterContext);
-  console.log(monsters);
   return (
     <Box mt="90px">
       <Box p={5} maxW="1200px" mx="auto">

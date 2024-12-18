@@ -1,20 +1,20 @@
 import React, { useState, useContext } from 'react';
-import { Box, Button, FormControl, FormLabel, Input, Textarea, Switch, Heading, useToast } from '@chakra-ui/react';
+import { Box, Button, FormControl, FormLabel, Input, Textarea, Switch, Heading, useToast, Image, Text } from '@chakra-ui/react';
 import { MonsterContext } from '../../context/MonsterContext/MonsterContext';
 
 function ProductCreatorForm() {
-  const { addMonster } = useContext(MonsterContext);
+  const { createMonster } = useContext(MonsterContext);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
   const [featured, setFeatured] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const toast = useToast();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validaciones
     if (!name || !description || !price || !image) {
       toast({
         title: "Error",
@@ -38,14 +38,14 @@ function ProductCreatorForm() {
     }
 
     const newMonster = { name, description, price, image, featured };
-    addMonster(newMonster);
+    createMonster(newMonster);
 
-    // Limpiar el formulario después de enviar
     setName('');
     setDescription('');
     setPrice('');
     setImage('');
     setFeatured(false);
+    setImageError(false);
 
     toast({
       title: "Success",
@@ -54,6 +54,14 @@ function ProductCreatorForm() {
       duration: 5000,
       isClosable: true,
     });
+  };
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
+  const handleImageLoad = () => {
+    setImageError(false);
   };
 
   return (
@@ -69,7 +77,6 @@ function ProductCreatorForm() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Enter monster name"
-            _placeholder={{ color: 'gray.600' }}
             color="black"
             bg="gray.100"
             borderColor="gray.300"
@@ -83,7 +90,6 @@ function ProductCreatorForm() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Enter monster description"
-            _placeholder={{ color: 'gray.600' }}
             color="black"
             bg="gray.100"
             borderColor="gray.300"
@@ -98,7 +104,6 @@ function ProductCreatorForm() {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             placeholder="Enter monster price"
-            _placeholder={{ color: 'gray.600' }}
             color="black"
             bg="gray.100"
             borderColor="gray.300"
@@ -109,11 +114,10 @@ function ProductCreatorForm() {
         <FormControl id="image" mb={4} isRequired>
           <FormLabel color="gray.800">Image URL</FormLabel>
           <Input
-            type="text"
+            type="url"
             value={image}
             onChange={(e) => setImage(e.target.value)}
             placeholder="Enter image URL"
-            _placeholder={{ color: 'gray.600' }}
             color="black"
             bg="gray.100"
             borderColor="gray.300"
@@ -121,6 +125,19 @@ function ProductCreatorForm() {
             _focus={{ borderColor: 'blue.500' }}
           />
         </FormControl>
+        {image && (
+          <Box mb={4}>
+            <Image
+              src={image}
+              alt="Monster Preview"
+              borderRadius="lg"
+              onError={handleImageError}
+              onLoad={handleImageLoad}
+              display={imageError ? 'none' : 'block'}
+            />
+            {imageError && <Text color="red.500">Invalid image URL</Text>}
+          </Box>
+        )}
         <FormControl display="flex" alignItems="center" mb={4}>
           <FormLabel htmlFor="featured" mb="0" color="gray.800">
             Featured

@@ -94,6 +94,7 @@ function EditFormMonster({ monster, isOpen, onClose }) {
                             mt={4}
                         />
                     )}
+                    <FormLabel mb="0" color="black">Featured</FormLabel>
                     <FeaturedSwitch
                         isChecked={formData.featured || false}
                         onChange={handleSwitchChange}

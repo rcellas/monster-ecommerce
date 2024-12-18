@@ -41,6 +41,7 @@ function ProductManager() {
       backdropFilter="blur(10px)"
       borderRadius="lg"
       boxShadow="lg"
+      minHeight="100vh"
     >
       <Heading as="h2" size="xl" color="white" mb={5} textAlign="center">
         Manage Products

@@ -8,9 +8,8 @@ import { Box, Flex } from '@chakra-ui/react';
 const Layout = () => {
   return (
     <MonsterProvider>
-      <Flex direction="column" minH="100vh"> {/* Usa minHeight para forzar la altura */}
+      <Flex direction="column" minH="100vh">
         <Header />
-        {/* El contenido crece para ocupar el espacio sobrante */}
         <Box flex="1">
           <Outlet />
         </Box>
